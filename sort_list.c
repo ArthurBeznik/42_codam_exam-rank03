@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/13 17:18:52 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/09/13 17:40:05 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/09/16 12:02:42 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 				tmp->data = tmp->next->data;
 				tmp->next->data = tmp_data;
 			}
-		tmp = tmp->next;
+			tmp = tmp->next;
 		}
 	}
 	return (lst);
