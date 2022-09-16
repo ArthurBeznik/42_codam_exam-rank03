@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/13 17:18:52 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/09/16 12:02:42 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/09/16 12:04:16 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@
  * 	= 0 otherwise.
  */
 
-int	cmp(int a, int b)
-{
-	return (a <= b);
-}
-
 typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
 }	t_list;
+
+int	cmp(int a, int b)
+{
+	return (a <= b);
+}
 
 int	is_sorted(t_list *lst, int (*cmp)(int, int))
 {
@@ -43,7 +43,7 @@ int	is_sorted(t_list *lst, int (*cmp)(int, int))
 	tmp = lst;
 	while (tmp->next != NULL)
 	{
-		if (cmp(tmp->data, tmp->next->data) == 0)
+		if (!cmp(tmp->data, tmp->next->data))
 			return (1);
 		tmp = tmp->next;
 	}
@@ -55,12 +55,12 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 	t_list	*tmp;
 	int		tmp_data;
 
-	while (is_sorted(lst, cmp) == 1)
+	while (is_sorted(lst, cmp))
 	{
 		tmp = lst;
 		while (tmp->next != NULL)
 		{
-			if (cmp(tmp->data, tmp->next->data) == 0)
+			if (!cmp(tmp->data, tmp->next->data))
 			{
 				tmp_data = tmp->data;
 				tmp->data = tmp->next->data;
