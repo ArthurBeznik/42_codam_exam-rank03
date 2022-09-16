@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/12 15:15:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/09/13 17:20:14 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/09/16 12:00:42 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char **split_f(char *str1)
         a[x++][y] = 0; // NULL terminate x-th array of a
         y = 0; // reset y to 0
     }
-    a[x][y] = NULL; // NULL terminate the array
+    a[x] = NULL; // NULL terminate the array
     return (a);
 }
 
